@@ -8,10 +8,16 @@ ARM AARCH64 ISA :
 
 This module is intended to teach ARM AARCH64 Instruction set Architecture
 
+Requirements :
+=============
+1. Ubuntu x86 64-bit host machine with ARM AARCH64 compiler-Reference [1] installed 
+2. Install qemu-aarch64 ARM emulator :  sudo apt-get install qemu-aarch64
+
+
 Instructions :
 =============
 1. To compile the program, run :  make clean  &&  make
-2. Refer compilation steps to get executable name, run program as ./<executable>
+2. Refer compilation steps to get executable name, run program as qemu-aarch64 ./<executable>
 3. To disassemble of the program, view <executable>.dis . Note objdump is used to convert executable to assembly file
 
 
