@@ -42,29 +42,29 @@ neon_matrix_multiply :
 	MUL  v9.4s, v5.4s, v0.4s[1]
 	MUL  v10.4s, v6.4s, v0.4s[2]
 	MUL  v11.4s, v7.4s, v0.4s[3]
-	add v12.4s,  v8.4s,v9.4s
-	add v12.4s,  v12.4s,v10.4s
-	add v12.4s,  v12.4s,v11.4s
+	add v12.4s, v8.4s, v9.4s
+	add v12.4s, v12.4s, v10.4s
+	add v12.4s, v12.4s, v11.4s
 	str q12, [x2,#0]
 	/* Row 2 */
 	MUL  v8.4s, v4.4s, v1.4s[0]
 	MUL  v9.4s, v5.4s, v1.4s[1]
 	MUL  v10.4s, v6.4s, v1.4s[2]
 	MUL  v11.4s, v7.4s, v1.4s[3]
-	add v12.4s,  v8.4s,v9.4s
-	add v12.4s,  v12.4s,v10.4s
-	add v12.4s,  v12.4s,v11.4s
+	add v12.4s,  v8.4s, v9.4s
+	add v12.4s,  v12.4s, v10.4s
+	add v12.4s,  v12.4s, v11.4s
 	str q12, [x2,#16]
 	/* Row 3 */
 	MUL  v8.4s, v4.4s, v2.4s[0]
 	MUL  v9.4s, v5.4s, v2.4s[1]
 	MUL  v10.4s, v6.4s, v2.4s[2]
 	MUL  v11.4s, v7.4s, v2.4s[3]
-	add v12.4s,  v8.4s,v9.4s
-	add v12.4s,  v12.4s,v10.4s
-	add v12.4s,  v12.4s,v11.4s
+	add v12.4s,  v8.4s, v9.4s
+	add v12.4s,  v12.4s, v10.4s
+	add v12.4s,  v12.4s, v11.4s
 	str q12, [x2,#32]
-	/* Row 3 */
+	/* Row 4 */
 	MUL  v8.4s, v4.4s, v3.4s[0]
 	MUL  v9.4s, v5.4s, v3.4s[1]
 	MUL  v10.4s, v6.4s, v3.4s[2]
