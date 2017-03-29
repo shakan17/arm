@@ -1,9 +1,10 @@
 
 ARM
 ====
-This repository is intended for teaching ARM Processor Architecture & Programming  An ARM processor is one of a family of CPUs based on the RISC (reduced instruction set computer) architecture developed by Advanced RISC Machines (ARM). ARM makes 32-bit and 64-bit RISC multi-core processors.
+This repository is intended for teaching ARM Processor Architecture & Programming.  An ARM processor is one of a family of CPUs based on the RISC (reduced instruction set computer) architecture developed by Advanced RISC Machines (ARM). ARM makes 32-bit and 64-bit RISC multi-core processors.
 
-Contents: 
+Contents
+========
 
 ARM AARCH64 ISA 
 =================
