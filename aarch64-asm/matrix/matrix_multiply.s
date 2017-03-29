@@ -17,10 +17,10 @@ int matrix_multiply(int a[4][4], int b[4][4]),int res[4][4];
 
 
 
-.global matrix_multiply
-.type matrix_multiply %function
+.global asm_matrix_multiply
+.type asm_matrix_multiply %function
 
-matrix_multiply:
+asm_matrix_multiply:
 	add	x9, x2, #0x40        /* End of Result matrix */
 loop:
 	ldr	w5, [x0]             /* a[0][0] */   
