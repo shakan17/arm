@@ -32,8 +32,8 @@ The latest Linaro Linux GCC toolchains for ARM 64-bit linux platforms can be dow
 The host needs a cross-debugger to debug an application running on the target. GDB (GNU Debugger) has a version which supports multiple architectures (such as ARM, MIPS, …) named gdb-multiarch.
 
 #### 1.Install GDB and GDB multi-architecture:
-*$ sudo apt-get install gdb
-*$ sudo apt-get install gdb-multiarch 
+*sudo apt-get install gdb
+*sudo apt-get install gdb-multiarch 
 
 
 ### 2. Debugging with GDB
@@ -43,30 +43,30 @@ GDB is a text-debugger common to most Linux systems. For remote debugging, we wi
 1.  Build your project using the -g option to ensure the file gets debug symbols.
 **This likely means adding the -g option to your CFLAGS variable in your Makefile.
 2.  Install GDB server on the target:
-**$apt-get update
-**$apt-get install gdbserver
+**apt-get update
+**apt-get install gdbserver
 
 3. On the target, change to the directory where your application is (assumed to be named
 helloWorld), and launch gdbserver:
 
-*$gdbserver localhost:2001 helloWorld
+*gdbserver localhost:2001 helloWorld
 
 It should look like the following (pid likely to be different):
-*$gdbserver localhost:2001 helloWorld
+*gdbserver localhost:2001 helloWorld
 
-Process helloWorld created; pid = 1068
-Listening on port 2001
+*Process helloWorld created; pid = 1068
+*Listening on port 2001
 
 4.  On the host, in the directory of your helloWorld executable, launch the cross-debugger:
-*$ gdb-multiarch -q helloWorld
+*gdb-multiarch -q helloWorld
 
-5.	At the GDB prompt "(gdb)", type in the following command to connect to the target:
+5.  At the GDB prompt "(gdb)", type in the following command to connect to the target:
 
-(gdb) target remote 192.168.0.102:2001
+*(gdb) target remote 192.168.0.102:2001
 
-** Change the IP address to the IP address of the target.
+*Change the IP address to the IP address of the target.
 
-** The host should look like this:
+**The host should look like this:
 *gdb-multiarch -q helloWorld
 *(gdb) target remote 192.168.0.171:2001
 *Remote debugging using 192.168.0.171:2001
@@ -75,12 +75,12 @@ Listening on port 2001
 
 *(gdb)
 
-** The target should now have displayed the additional line (your IP will be different):
-*** Remote debugging from host 192.168.0.188
+**The target should now have displayed the additional line (your IP will be different):
+***Remote debugging from host 192.168.0.188
 
 6. You now have a GDB session. You should be familiar with the following GDB commands, Refer [GDB Commands Cheat Sheet](http://darkdust.net/files/GDB%20Cheat%20Sheet.pdf)
-**	list, frame, quit
-**	info breakpoints, break main, break lineNumberHere, delete 1
-**	continue, print myVar, step, next
-**	bt, info args, info frame, info local, up, down
-**	Control + C (to interrupt program when running).
+**list, frame, quit
+**info breakpoints, break main, break lineNumberHere, delete 1
+**continue, print myVar, step, next
+**bt, info args, info frame, info local, up, down
+**Control + C (to interrupt program when running).
