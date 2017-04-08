@@ -41,46 +41,41 @@ The host needs a cross-debugger to debug an application running on the target. G
 GDB is a text-debugger common to most Linux systems. For remote debugging, we will run gdbserver on the target, and the cross-debugger (gdb-multiarch) on the host.
 
 1.  Build your project using the -g option to ensure the file gets debug symbols.
-**This likely means adding the -g option to your CFLAGS variable in your Makefile.
+	1.This likely means adding the -g option to your CFLAGS variable in your Makefile.
 2.  Install GDB server on the target:
-**apt-get update
-**apt-get install gdbserver
+	1.apt-get update
+	2.apt-get install gdbserver
 
 3. On the target, change to the directory where your application is (assumed to be named
 helloWorld), and launch gdbserver:
-
-*gdbserver localhost:2001 helloWorld
+	1.gdbserver localhost:2001 helloWorld
 
 It should look like the following (pid likely to be different):
-*gdbserver localhost:2001 helloWorld
-
-*Process helloWorld created; pid = 1068
-*Listening on port 2001
+	1.gdbserver localhost:2001 helloWorld
+	2.Process helloWorld created; pid = 1068
+	3.Listening on port 2001
 
 4.  On the host, in the directory of your helloWorld executable, launch the cross-debugger:
-*gdb-multiarch -q helloWorld
+	1.gdb-multiarch -q helloWorld
 
 5.  At the GDB prompt "(gdb)", type in the following command to connect to the target:
 
-*(gdb) target remote 192.168.0.102:2001
+	1.(gdb) target remote 192.168.0.102:2001
+	2.Change the IP address to the IP address of the target.
+	3.The host should look like this:
+		1.gdb-multiarch -q helloWorld
+		2.(gdb) target remote 192.168.0.171:2001
+		3.Remote debugging using 192.168.0.171:2001
+		4.warning: Unable to find dynamic linker breakpoint function. GDB will be unable to debug shared library initializers and track explicitly loaded dynamic code.
+		5.0x400007b0 in ?? ()
+		6.(gdb)
 
-*Change the IP address to the IP address of the target.
-
-**The host should look like this:
-*gdb-multiarch -q helloWorld
-*(gdb) target remote 192.168.0.171:2001
-*Remote debugging using 192.168.0.171:2001
-*warning: Unable to find dynamic linker breakpoint function. GDB will be unable to debug shared library initializers and track explicitly loaded dynamic code.
-*0x400007b0 in ?? ()
-
-*(gdb)
-
-**The target should now have displayed the additional line (your IP will be different):
-***Remote debugging from host 192.168.0.188
+	4.The target should now have displayed the additional line (your IP will be different):
+	5.Remote debugging from host 192.168.0.188
 
 6. You now have a GDB session. You should be familiar with the following GDB commands, Refer [GDB Commands Cheat Sheet](http://darkdust.net/files/GDB%20Cheat%20Sheet.pdf)
-**list, frame, quit
-**info breakpoints, break main, break lineNumberHere, delete 1
-**continue, print myVar, step, next
-**bt, info args, info frame, info local, up, down
-**Control + C (to interrupt program when running).
+	1.list, frame, quit
+	2.info breakpoints, break main, break lineNumberHere, delete 1
+	3.continue, print myVar, step, next
+	4.bt, info args, info frame, info local, up, down
+	5.Control + C (to interrupt program when running).
