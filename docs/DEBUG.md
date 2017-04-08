@@ -17,3 +17,11 @@ The latest Linaro Linux GCC toolchains for ARM 64-bit linux platforms can be dow
 * Compiler : _*arch64-linux-gnu-gcc*_
 * Objdump  : _*arch64-linux-gnu-objdump*_
 
+
+## Compiling and dis-assemble ARM 64-bit linux binaries
+
+* Export the GCC toolchain binaries path in PATH variable as shown above
+* To compile a program, use : *arch64-linux-gnu-gcc -static  program.c -o program.axf  *  (_Note static is used to overcome any library depoendancies in your target_)
+* To disassemble the binary , use arch64-linux-gnu-objdump -d program.axf > program.S
+* Refer Makefile in one of the programs in aarch64-asm folder for more details
+
