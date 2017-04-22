@@ -1,0 +1,297 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8x]{inputenc}    
+\usepackage[T1]{fontenc}
+
+\usepackage[box,completemulti]{automultiplechoice}    
+\begin{document}
+
+\onecopy{51}{    
+
+%%% beginning of the test sheet header:    
+
+%\noindent{\bf QCM  \hfill TEST}
+
+\vspace*{.5cm}
+\begin{minipage}{.4\linewidth}
+\centering\large\bf EE5100\\ Processor Architecture ARM \\ Time: 45 mins .\end{minipage}
+\namefield{\fbox{    
+                \begin{minipage}{.5\linewidth}
+                  Name and Roll No.
+
+                  \vspace*{.5cm}\dotfill
+                  \vspace*{1mm}
+                \end{minipage}
+         }}
+
+\begin{center}\em
+All questions have single correct answer. Cross the choice corresponding to that.
+To correct, fill the old choice box completely and then cross the correct one.
+\end{center}
+\vspace{1ex}
+
+%%% end of the header
+
+\begin{question}{Q1}    
+   Which of the following is the correct sequence of stages in the CPU pipeline ? \\
+   EX : Execute or AGU, ID : Decode and Register Read, IF : Fetch,  MEM : Access Memory Operand, WB : Write-back 
+  \begin{choices}
+    \correctchoice{IF -> ID -> EX -> MEM -> WB}
+    \wrongchoice{IF -> ID -> WB -> MEM -> EX}
+    \wrongchoice{ID -> IF -> EX -> MEM -> WB}
+    \wrongchoice{IF -> ID -> MEM -> WB -> EX}
+  \end{choices}
+\end{question}
+
+\begin{question}{Q2}    
+ For an in-order, non-superscalar CPU pipeline having 5 stages, it would take 5 cycles for a single instruction to complete execution. What would be the approximate CPI(Cycles-per-Instruction) if we execute a large stream of instructions without any dependencies or hazards ?
+  \begin{choices}
+    \correctchoice{ 1 }
+    \wrongchoice{ 0.5 }
+    \wrongchoice{ 5}
+    \wrongchoice{ None}
+  \end{choices}
+\end{question}
+
+\begin{question}{Q3}    
+    In 64-bit ARM CPUs like Cortex A53, Cortex A72, which of the following holds true about the structure of the caches ?
+  \begin{choices}
+    \correctchoice{Only L1 caches use Harvard architecture, all other caches and RAM use von-Neumann architecture}
+    \wrongchoice{All caches (L1, L2, L3 etc) use Harvard architecture, only RAM uses von-Neumann architecture}
+    \wrongchoice{Only L1 caches use von-Neumann architecture, all other caches and RAM use Harvard architecture}
+    \wrongchoice{Harvard architecture is never used in any of the caches, all caches and memory use von-Neumann architecture}
+  \end{choices}
+\end{question}
+
+\begin{question}{Q4}    
+   Which of the following is true regarding instruction and data lengths supported on an ARMv8(AArch64) processor running in AArch64 ISA mode (not AArch32)?
+  \begin{choices}
+    \correctchoice{Instruction Length = 32 bits           |  Data Register Length = 64 bits or 32 bits}
+    \wrongchoice{Instruction Length = 32 bits or 16 bits  |  Data Register Length = 32 bits}
+    \wrongchoice{Instruction Length = 64 bits             |  Data Register Length = 64 bits}
+    \wrongchoice{Instruction Length = 16 bits             |  Data Register Length = 64 bits or 32 bits}
+  \end{choices}
+\end{question}
+
+\begin{question}{Q5}    
+   Which of the following rules are dictated by the standard ARMv8 Procedure Calling Standard (APCS) ?
+  \begin{choices}
+    \correctchoice{X0-X7 are used for argument passing, and X19-X29 are preserved by the callee}
+    \wrongchoice{X0-X3 are used for argument passing, and X16-X29 are preserved by the callee}
+    \wrongchoice{X0-X15 are used for argument passing, and X16-X30 are preserved by the callee}
+    \wrongchoice{Any register can be used to pass arguments and callee can corrupt any register}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q6}   
+  Which of the following statements is false ? 
+  \begin{choices}
+    \correctchoice{Program Counter PC holds the count of number of instructions executed}
+    \wrongchoice{Link Register holds the return address of the function from which it has been called}
+    \wrongchoice{Stack pointer holds the address of the top of the stack frame}
+    \wrongchoice{ARMv8A CPU has 128 bit v0-v31 floating point/vector registers which are different from general purpose registers x0-x31}
+  \end{choices}
+\end{question}
+
+
+
+\begin{question}{Q7}   
+   Which of the following is in increasing order of Access latency from ARM v8A CPU pipeline ? 
+  \begin{choices}
+    \correctchoice{General purpose(GP) Registers < L1 Data cache < L2 cache < DDR}
+    \wrongchoice{DDR < GP Registers < L2 cache < L1 Instruction cache}
+    \wrongchoice{L2 cache < L1 Instuction cache < GP Registers < DDR}
+    \wrongchoice{L1 Data cache < L2 cache < DDR < GP Registers}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q8}   
+    Which of the following instructions, when executed, will increment the value of program counter (PC)  by more than 4 ? \\ Note in normal circumstances, PC = PC + 4 , Assume PC=0x1000, x0 and x1 = 0x2000.
+  \begin{choices}
+    \correctchoice{BL \#0x2000}
+    \wrongchoice{LDR x0, [x0]}
+    \wrongchoice{ADD x0, x0, x1}
+    \wrongchoice{MOV x0, 0xff}
+  \end{choices}
+\end{question}
+
+\begin{question}{Q9}   
+   Identify the locality of reference (cache) exhibited by the variables in the following program ? \\
+   int k = 20;  \\
+   for(i=0; i < 100; i++) \\
+   \{ \\
+ 	\hspace*{5 mm}        a[i] = b[i] + c[i] + k; \\
+   	\hspace*{5 mm}     k++;\\
+   \} \\
+   
+  \begin{choices}
+    \correctchoice{Array a[i] exhibits spatial locality and variable "k" exhibits temporal locality}
+    \wrongchoice{Array a[i] exhibits temporal locality and variable "k" exhibits spatial locality}
+    \wrongchoice{Array a[i] and variable "k" exhibits temporal locality}
+    \wrongchoice{Array a[i] and variable "k" exhibits spatial locality}
+  \end{choices}
+\end{question}
+
+\begin{question}{Q10}   
+   Consider  32KB 2-way set-associative data cache, with each cache line size of 64 bytes, the address 0xF0F0F0(hex)  maps to  \_\_ index  and \_\_ cache line word ? 
+  \begin{choices}
+    \correctchoice{195, 12}
+    \wrongchoice{256, 0}
+    \wrongchoice{15, 48}
+    \wrongchoice{15,15}
+  \end{choices}
+\end{question}
+
+\begin{question}{Q11}   
+   If we want to implement the following function in AArch64 assembly, which option amongst the below choices would produce the functionally correct result?
+   \\
+   int function(int a, int b, int c) \\
+   \{ \\
+		\hspace*{5 mm}     return (a + (b - c)); \\
+   \} \\
+
+  \begin{choices}
+    \correctchoice{SUB w3, w1, w2  \\  ADD w0, w0, w3 \\ RET}
+    \wrongchoice{ SUB w3, w1, w2  \\   ADD w4, w0, w3 \\ RET}
+    \wrongchoice{SUB w3, w1, w2   \\   ADD w1, w0, w3 \\  RET}
+    \wrongchoice{SUB w2, w2, w3   \\   ADD w1, w1, w2 \\ RET}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q12}   
+  Which of the following factors favoured the adoption of RISC processor design paradigm over CISC?
+  \begin{choices}
+    \correctchoice{Memories became faster and cheaper and bigger code size was affordable}
+    \wrongchoice{CISC had less hardware complexity than RISC}
+    \wrongchoice{Compilers for RISC produced smaller code size than CISC}
+    \wrongchoice{CISC had limited instructions }
+  \end{choices}
+\end{question}
+
+
+
+\begin{question}{Q13}   
+   which one of the following is true about address register in below instruction ? (In AARCH64 Mode)  \\
+   LDR x0, [address\_register] 
+  \begin{choices}
+    \correctchoice{The address\_register must be 64-bit}
+    \wrongchoice{The address\_register can be either 32-bit or 64-bit}
+    \wrongchoice{The address\_register can be either 16-bit or 32-bit or 64-bit}
+    \wrongchoice{The address\_register must be 32-bit}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q14}   
+  Which of the following is true for Link Register(LR) and Stack Pointer(SP) in ARMv8? \\
+   Note : SW : Software , HW : Hardware
+  \begin{choices}
+    \correctchoice{LR is automatically set by CPU HW on doing branch, SP needs to be set by SW on doing save/restore on Stack}
+    \wrongchoice{SP is automatically incremented by HW on doing save/restore on Stack, LR needs to be set by SW on doing branch}
+    \wrongchoice{SP is automatically incremented by HW on doing save/restore on Stack, LR is automatically set by HW on doing branch}
+    \wrongchoice{SP needs to be set by SW on doing save/restore on Stack, LR needs to be set by SW on doing branch}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q15}   
+   Which one of the following is true? 
+  \begin{choices}
+    \correctchoice{Compiler compiles .c and .asm files into object(.o) files and Linker creates executables}
+    \wrongchoice{Compiler compiles .c files into executables, and Linker compiles .asm files into executables}
+    \wrongchoice{Compiler compiles .c files into object(.o) files and .asm files into executables, and Linker merges the executables}
+    \wrongchoice{Compiler compiles .c and .asm files into executables and Linker optimizes the executables}
+  \end{choices}
+\end{question}
+
+
+
+\begin{question}{Q16}   
+Consider the following C function and disassembly for the same .\\
+int func(int *x,  int y, int z) \\
+\{ \\
+	if ((*x-1) == 0)) \\
+	\{ \\
+		\hspace*{5 mm} 	y *= 5; \\
+		\hspace*{5 mm} z = y - 2; \\
+		\hspace*{5 mm} 	return z; \\
+	\} \\
+	else \\
+	\{ \\
+		\hspace*{5 mm} 		z = y - 2; \\
+		\hspace*{5 mm} 	return z; \\
+	\} \\
+\} \\	
+\\
+AArch64 assembly code \\ 
+\\
+ 	\hspace*{5 mm} LDR <reg1>, [X0] \\
+	\hspace*{5 mm} MOV W10, \#1 \\
+	\hspace*{5 mm} SUB W0, W0, W10 \\
+	\hspace*{5 mm} 	CMP W0, \#0 \\
+	\hspace*{5 mm} B.NE label1 \\
+	\hspace*{5 mm} B end \\
+label1: \\
+    \hspace*{5 mm} SUB <reg3>, W1, \#2 \\
+ 	\hspace*{5 mm}     RET \\
+end: \\
+	\hspace*{5 mm} MUL <reg2>, W1, \#5 \\
+    \hspace*{5 mm} B label1 \\
+
+Fill in the choice for reg1,reg2 and reg3 .\\
+
+  \begin{choices}
+    \correctchoice{reg1=W0, reg2=W1, reg3=W0}
+    \wrongchoice{reg1=W1, reg2=W2, reg3=W1}
+    \wrongchoice{reg1=W1, reg2=W2, reg3=W2}
+    \wrongchoice{reg1=W0, reg2=W2, reg3=W2}
+  \end{choices}
+\end{question}
+
+\begin{question}{Q17}   
+With regard to variable width in C programming language using LP64 standard (64-bit Linux),  Idendity the false statement in the following . 
+  \begin{choices}
+    \correctchoice{size of long variable is 128 bits}
+    \wrongchoice{size of char is 8 bits}
+    \wrongchoice{size of short is 16 bits }
+    \wrongchoice{size of int is 32 bits}
+  \end{choices}
+\end{question}
+
+\begin{question}{Q18}   
+Which of the following instruction does  SIMD operation ?
+  \begin{choices}
+    \correctchoice{ADD V0.8H, V1.8H, V2.8H}
+    \wrongchoice{ADD X0, X1, \#42}
+    \wrongchoice{ADD W0, W1, W2}
+    \wrongchoice{ADD X0, W1, W2,W3, W4}
+  \end{choices}
+\end{question}
+
+\begin{question}{Q19}   
+Which of the following is false ?
+  \begin{choices}
+    \correctchoice{ARM CPUs implement direct mapped cache}
+    \wrongchoice{Direct mapped cache have more likelihood of thrashing .i.e. more than one memory address map to same cache line}
+    \wrongchoice{In Associative map cache, memory address can be placed in any cache line }
+    \wrongchoice{Set associative map provides better performance than direct mapped cache or associative cache for most of the usecases}
+  \end{choices}
+\end{question}
+
+\begin{question}{Q20}   
+Which of the following situation demands software to clean or invalidate the CPU cache ?
+  \begin{choices}
+    \correctchoice{Contents of the external memory have been changed by other bus masters like GPU (Graphics Processing Unit)}
+    \wrongchoice{New function is called}
+    \wrongchoice{Value of local variable is modified by the application program}
+    \wrongchoice{Userspace application allocates memory using malloc function}
+  \end{choices}
+\end{question}
+\clearpage
+}   
+
+\end{document}
+

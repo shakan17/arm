@@ -1,0 +1,1 @@
+auto-multiple-choice prepare --with pdflatex --out-sujet  architecture.pdf --mode s --n-copies 5  /usr2/shakan/workspace/arm-training/quiz/architecture.tex  --prefix /usr2/shakan/arm
