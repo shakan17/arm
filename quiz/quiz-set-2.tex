@@ -1,0 +1,265 @@
+\documentclass[a4paper]{article}
+
+\usepackage[utf8x]{inputenc}    
+\usepackage[T1]{fontenc}
+
+\usepackage[box,completemulti]{automultiplechoice}    
+\begin{document}
+
+\onecopy{51}{    
+
+%%% beginning of the test sheet header:    
+
+%\noindent{\bf QCM  \hfill TEST}
+
+\vspace*{.5cm}
+\begin{minipage}{.4\linewidth}
+\centering\large\bf EE5100\\ Processor Architecture ARM \\ Time: 30 mins .\end{minipage}
+\namefield{\fbox{    
+                \begin{minipage}{.5\linewidth}
+                  Name and Roll No.
+
+                  \vspace*{.5cm}\dotfill
+                  \vspace*{1mm}
+                \end{minipage}
+         }}
+
+\begin{center}\em
+All questions have single correct answer. Cross the choice corresponding to that.
+To correct, fill the old choice box completely and then cross the correct one.
+\end{center}
+\vspace{1ex}
+
+%%% end of the header
+
+\begin{question}{Q1}    
+   Which one of the following instructions, when executed has a chance of generating synchronous exception ?
+  \begin{choices}
+    \correctchoice{LDR X0, [X1]}
+    \wrongchoice{MOV X0, \#0xF}
+    \wrongchoice{BR X0}
+    \wrongchoice{ERET}
+  \end{choices}
+\end{question}
+
+\begin{question}{Q2} 
+  Which of the following will be an usecase for using Software Generated Interrupts(SGI) in Generic Interrupt Controller ?   
+  \begin{choices}
+    \correctchoice{Communicating between processors im SMP system}
+    \wrongchoice{Entering low power state}
+    \wrongchoice{Userspace application  to use OS services}
+    \wrongchoice{Implementing a delay loop}
+  \end{choices}
+\end{question}
+
+\begin{question}{Q3}
+  Consider the following function, when executed on 64-bit ARM v8 processor, \\
+  int function(int a)  \\
+  \{  \\
+ 	\hspace*{5 mm}  int *p; \\
+ 	\hspace*{5 mm}  *p = a; \\
+ 	\hspace*{5 mm} return 0; \\
+  \}
+  \begin{choices}
+    \correctchoice{Generates a synchronous exception}
+    \wrongchoice{Returns 0 in X0 register}
+    \wrongchoice{Writes the value of "a" to stack memory}
+    \wrongchoice{Corrupts the stack memory}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q4}
+  Which of the following is false about virtualization extensions to ARM v8A architecture ? 
+  \begin{choices}
+    \correctchoice{Virtualization support is needed for using virtual address in user space application}
+    \wrongchoice{Virtualization enables to run more than one operating system on ARM v8A systems}
+    \wrongchoice{Virtualization introduces a second stage of address translation}
+    \wrongchoice{Virtual machine monitor runs in Exception level two - EL2 }
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q5}
+  Which of the following instruction is NOT used to jump to a higher exception level ?  
+  \begin{choices}
+    \correctchoice{ERET}
+    \wrongchoice{SVC}
+    \wrongchoice{HVC}
+    \wrongchoice{SMC}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q6}
+  Which of the following statements is false about virtual-memory? 
+  \begin{choices}
+    \correctchoice{If Virtual address pages are contiguous then the corresponding Physical address pages also need to be contiguous}
+    \wrongchoice{Virtual addresses help to abstract the underlying physical memory map from the programmer}
+    \wrongchoice{Virtual address to physical-address mappings are managed by the Operating-system and not by the user application}
+    \wrongchoice{Virtual address to physical address mappings are done by page-table lookups}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q7}
+  In a virtual memory system with 46-bit virtual and 32-bit physical address and three level page table structure, level 1 page table entries occupies exactly one page. The page table entries (PTE) are 32-bits in size.  The page size used by the MMU is  
+  \begin{choices}
+    \correctchoice{8KB}
+    \wrongchoice{4KB}
+    \wrongchoice{2KB}
+    \wrongchoice{16KB}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q8}
+  A multilevel page table is preferred in comparison to a single level page table for translating virtual address to physical address because   
+  \begin{choices}
+    \correctchoice{It helps to reduce the size of page table needed to implement the virtual address space of a process}
+    \wrongchoice{It reduces the memory access time to read or write a memory location}
+    \wrongchoice{It is required by the translation lookaside buffer}
+    \wrongchoice{It helps to reduce the number of page faults in page replacement algorithms}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q9}
+  In ARM v8A CPUs using 4GB main memory and  linux kernel using higher 1 GB of physical address, when switching from user space to kernel space, you need to \\
+  \\ (TTBR - Translation Table Base Register)
+  \begin{choices}
+    \correctchoice{No changes required to TTBR0 and TTBR1 settings}
+    \wrongchoice{Set the kernel memory mapping page tables base address in TTBR0 }
+    \wrongchoice{Clear the user space memory mapping page tables base address in TTBR1 }
+    \wrongchoice{Set the kernel address maping in TTBR0 and clear the user space mapping in TTBR1}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q10}
+  To mark a region of main memory  non-cacheable, for sharing with other bus masters like DMA,GPU,    
+  \begin{choices}
+    \correctchoice{MMU Page tables has to be setup for the selected memory region with memoty type as non-cacheable}
+    \wrongchoice{ARM v8A CPUs doesn't allow to access section of main memory as non-cacheable memory}
+    \wrongchoice{Data cache can be configured to cache selective region of memory}
+    \wrongchoice{Caches should be turned off while accessing non-cacheable memory region}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q11}
+  Translation look-aside buffer (TLB) is   
+  \begin{choices}
+    \correctchoice{A cache that holds the recently used VA to PA address mapping}
+    \wrongchoice{A cache that holds the base address of translation tables}
+    \wrongchoice{A cache that holds the recently used data in virtual address space}
+    \wrongchoice{A cache that holds all levels of page tables}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q12}
+  Which of the following parameters affect the overall size of the page tables ?  
+  \begin{choices}
+    \correctchoice{All}
+    \wrongchoice{Virtual address Size}
+    \wrongchoice{Page Size}
+    \wrongchoice{Page table enty size}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q13}
+  One of your favourite application has 40\% of the instructions with floating point multiply. You want to improve response time by factor of two by redesigning FP execution unit,  what should be the factor of improvement you should make in floating point execution unit to achieve this improvement ?
+  \begin{choices}
+    \correctchoice{Impossible}
+    \wrongchoice{0.8}
+    \wrongchoice{1.25}
+    \wrongchoice{1.67}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q14}
+  Which of the following is false ?
+  \begin{choices}
+    \correctchoice{Static power increases linearly with frequency}
+    \wrongchoice{Dynamic power increases quadratically with voltage}
+    \wrongchoice{Static power increases with increase in area of CPU}
+    \wrongchoice{Clock gating reduces the dynamic power consumption of CPU}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q15}
+  Which of the following instruction wakes up the CPU from low power mode ?
+  \begin{choices}
+    \correctchoice{SEV}
+    \wrongchoice{WFI}
+    \wrongchoice{WFE}
+    \wrongchoice{ERET}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q16}
+  Which of the following is an example of Private peripheral interrupt ? 
+  \begin{choices}
+    \correctchoice{PMU overflow}
+    \wrongchoice{UART Tx complete}
+    \wrongchoice{MMU fault}
+    \wrongchoice{DMA buffer overflow}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q17}
+  Which one of the following programs will have high branch miss penalities ? 
+  \begin{choices}
+    \correctchoice{Chess Program}
+    \wrongchoice{String Search in file}
+    \wrongchoice{JPEG encoding}
+    \wrongchoice{Video compression}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q18}
+  Which of the follwoing is false ? 
+  \begin{choices}
+    \correctchoice{Last instruction in an interrupt handler routine should be RET}
+    \wrongchoice{Message based interrupts remove the requirement for dedicated signal per interrupt source in GIC}
+    \wrongchoice{Interrupt state goes from Active to inactive when CPU writes to end of interrupt register(EOIR)}
+    \wrongchoice{GIC supports both edge triggered and level triggered interrupts}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q19}
+  If you develop a new simpler processor that has a 85\% of the capacitative load of older processor. Further you reduced voltage 15\% lower compared to older processor which resulted in 15\% reduction in frequency for the same performance. What is the impact to dynamic power ?  
+  \begin{choices}
+    \correctchoice{New processor uses half the power of older processor}
+    \wrongchoice{New processor uses one fourth of the power of older processor}
+    \wrongchoice{New processor uses 45\% of power of older processor }
+    \wrongchoice{New Processor uses 85\% of the power of older processor}
+  \end{choices}
+\end{question}
+
+
+\begin{question}{Q20}
+  Assume for a given program, 70\% of the executed instructions are arithmatic, 10\% are load/store and 20\% are branch . Given that Arithmatic instruction takes two cycle, load/store instruction takes six cycles and branch instruction takes three cycles, the average CPI of the program is 
+  \begin{choices}
+    \correctchoice{2.6}
+    \wrongchoice{3.6}
+    \wrongchoice{11}
+    \wrongchoice{5}
+  \end{choices}
+\end{question}
+
+
+
+\clearpage
+}   
+
+\end{document}
+
