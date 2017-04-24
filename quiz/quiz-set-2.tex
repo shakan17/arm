@@ -45,7 +45,7 @@ To correct, fill the old choice box completely and then cross the correct one.
 \begin{question}{Q2} 
   Which of the following will be an usecase for using Software Generated Interrupts(SGI) in Generic Interrupt Controller ?   
   \begin{choices}
-    \correctchoice{Communicating between processors im SMP system}
+    \correctchoice{Communicating between processors in SMP system}
     \wrongchoice{Entering low power state}
     \wrongchoice{Userspace application  to use OS services}
     \wrongchoice{Implementing a delay loop}
@@ -75,7 +75,7 @@ To correct, fill the old choice box completely and then cross the correct one.
     \correctchoice{Virtualization support is needed for using virtual address in user space application}
     \wrongchoice{Virtualization enables to run more than one operating system on ARM v8A systems}
     \wrongchoice{Virtualization introduces a second stage of address translation}
-    \wrongchoice{Virtual machine monitor runs in Exception level two - EL2 }
+    \wrongchoice{Virtual machine monitor runs in exception level two - EL2 }
   \end{choices}
 \end{question}
 
@@ -94,9 +94,9 @@ To correct, fill the old choice box completely and then cross the correct one.
 \begin{question}{Q6}
   Which of the following statements is false about virtual-memory? 
   \begin{choices}
-    \correctchoice{If Virtual address pages are contiguous then the corresponding Physical address pages also need to be contiguous}
+    \correctchoice{If virtual address pages are contiguous then the corresponding physical address pages also need to be contiguous}
     \wrongchoice{Virtual addresses help to abstract the underlying physical memory map from the programmer}
-    \wrongchoice{Virtual address to physical-address mappings are managed by the Operating-system and not by the user application}
+    \wrongchoice{Virtual address to physical-address mappings are managed by the operating-system and not by the user application}
     \wrongchoice{Virtual address to physical address mappings are done by page-table lookups}
   \end{choices}
 \end{question}
@@ -125,7 +125,7 @@ To correct, fill the old choice box completely and then cross the correct one.
 
 
 \begin{question}{Q9}
-  In ARM v8A CPUs using 4GB main memory and  linux kernel using higher 1 GB of physical address, when switching from user space to kernel space, you need to \\
+  In ARM v8A CPUs using 4GB main memory and linux kernel using higher 1 GB of physical address, when switching from user space to kernel space, you need to \\
   \\ (TTBR - Translation Table Base Register)
   \begin{choices}
     \correctchoice{No changes required to TTBR0 and TTBR1 settings}
@@ -137,7 +137,7 @@ To correct, fill the old choice box completely and then cross the correct one.
 
 
 \begin{question}{Q10}
-  To mark a region of main memory  non-cacheable, for sharing with other bus masters like DMA,GPU,    
+  To mark a region of main memory non-cacheable, for sharing with other bus masters like DMA, GPU,
   \begin{choices}
     \correctchoice{MMU Page tables has to be setup for the selected memory region with memoty type as non-cacheable}
     \wrongchoice{ARM v8A CPUs doesn't allow to access section of main memory as non-cacheable memory}
@@ -247,7 +247,7 @@ To correct, fill the old choice box completely and then cross the correct one.
 
 
 \begin{question}{Q20}
-  Assume for a given program, 70\% of the executed instructions are arithmatic, 10\% are load/store and 20\% are branch . Given that Arithmatic instruction takes two cycle, load/store instruction takes six cycles and branch instruction takes three cycles, the average CPI of the program is 
+  Assume for a given program, 70\% of the executed instructions are arithmatic, 10\% are load/store and 20\% are branch. Given that Arithmatic instruction takes two cycle, load/store instruction takes six cycles and branch instruction takes three cycles, the average CPI of the program is 
   \begin{choices}
     \correctchoice{2.6}
     \wrongchoice{3.6}
